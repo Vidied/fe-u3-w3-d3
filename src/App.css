@@ -1,5 +1,13 @@
 .bg-scuro {
-  background-color: #0d0d0d;
+  background-color: #050505;
+}
+
+.bg-menoscuro {
+  background-color: #121212;
+}
+
+.bordo {
+  border: 1px solid #00ff41;
 }
 
 .App {
