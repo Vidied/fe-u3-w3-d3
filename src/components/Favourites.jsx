@@ -1,11 +1,11 @@
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
+import { removeFromFavouritesAction } from "../redux/actions";
 
 const Favourites = () => {
   const favourites = useSelector((state) => state.favourites.content);
   const dispatch = useDispatch();
-
   return (
     <Container>
       <Row>
@@ -26,9 +26,7 @@ const Favourites = () => {
                 <i
                   className="text-danger fas fa-trash"
                   style={{ cursor: "pointer" }}
-                  onClick={() =>
-                    dispatch({ type: "REMOVE_FROM_FAVOURITES", payload: fav })
-                  }
+                  onClick={() => dispatch(removeFromFavouritesAction(fav))}
                 ></i>
               </ListGroup.Item>
             ))}

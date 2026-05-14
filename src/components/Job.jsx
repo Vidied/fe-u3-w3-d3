@@ -1,6 +1,10 @@
 import { Row, Col } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import {
+  addToFavouritesAction,
+  removeFromFavouritesAction,
+} from "../redux/actions";
 
 const Job = ({ data }) => {
   const favourites = useSelector((state) => state.favourites.content);
@@ -9,8 +13,8 @@ const Job = ({ data }) => {
 
   const toggle = () => {
     isFav
-      ? dispatch({ type: "REMOVE_FROM_FAVOURITES", payload: data.company_name })
-      : dispatch({ type: "ADD_TO_FAVOURITES", payload: data.company_name });
+      ? dispatch(removeFromFavouritesAction(data.company_name))
+      : dispatch(addToFavouritesAction(data.company_name));
   };
   return (
     <Row
